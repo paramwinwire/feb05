@@ -15,6 +15,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+      - name: Verify Files
+        run: |
+          pwd
+          ls -l .github/workflows  # Check if script is present
 
       - name: Set Up Python
         uses: actions/setup-python@v4
@@ -22,4 +26,4 @@ jobs:
           python-version: '3.x'  # Uses the latest Python 3 version
 
       - name: Run Python Script
-        run: python pythonscript.py
+        run: python .github/workflows/pythonscript.py
